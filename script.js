@@ -33,4 +33,26 @@ submit.addEventListener("click", function () {
   const birthMonth = parseInt(month.value, 10); 
   const birthYear = parseInt(year.value, 10);
   findAge(currDay, currMonth, currYear, birthDay, birthMonth, birthYear);
+
+
+  if (isNaN(birthDay) || isNaN(birthMonth) || isNaN(birthYear)){
+  day.style.border="solid red";
+  day.placeholder="Empty";
+  month.style.border="solid red";
+  month.placeholder="Empty";
+  year.style.border="solid red";
+  year.placeholder="Empty";
+
+  document.querySelector(".currday").innerHTML="Error";
+  document.querySelector(".currmonth").innerHTML ="Error";
+  document.querySelector(".curryear").innerHTML = "Error";
+
+  return;
+
+  }
+  
 });
+
+day.style.border="none";
+month.style.border="none";
+year.style.border="none";
