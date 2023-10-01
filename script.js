@@ -1,21 +1,36 @@
-let day,month,year;
+const day = document.querySelector(".day");
+const month = document.querySelector(".month");
+const year = document.querySelector(".year");
+const submit = document.querySelector(".imgg");
+const currDay = new Date().getDate();
+const currMonth = new Date().getMonth()+1;
+const currYear = new Date().getFullYear();
 
-day=document.querySelector(".day").value;
-month=document.querySelector(".month").value;
-year=document.querySelector(".year").value;
-submit=document.querySelector(".imgg");
+function findAge(current_date, current_month, current_year, birth_date, birth_month, birth_year) {
+  const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-const currDay= new Date();
-function getDay(){
-    document.querySelector(".currday").innerHTML=currDay.getDate()-day;
-}
-function getMonth(){
-    document.querySelector(".currmonth").innerHTML=currDay.getMonth()-month+1;
-}
-function getYear(){
-    document.querySelector(".curryear").innerHTML=currDay.getFullYear()-year;
+  if (birth_date > current_date) {
+    current_date = current_date + months[birth_month - 1];
+    current_month = current_month - 1;
+  }
+
+  if (birth_month > current_month) {
+    current_year = current_year - 1;
+    current_month = current_month + 12;
+  }
+
+  const calculated_date = current_date - birth_date;
+  const calculated_month = current_month - birth_month;
+  const calculated_year = current_year - birth_year;
+
+  document.querySelector(".currday").innerHTML = calculated_date;
+  document.querySelector(".currmonth").innerHTML = calculated_month;
+  document.querySelector(".curryear").innerHTML = calculated_year;
 }
 
-submit.addEventListener("click", getDay);
-submit.addEventListener("click", getMonth);
-submit.addEventListener("click", getYear);
+submit.addEventListener("click", function () {
+  const birthDay = parseInt(day.value, 10);
+  const birthMonth = parseInt(month.value, 10); 
+  const birthYear = parseInt(year.value, 10);
+  findAge(currDay, currMonth, currYear, birthDay, birthMonth, birthYear);
+});
