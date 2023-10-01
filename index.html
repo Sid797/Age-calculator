@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <head>
  <title>Age calculator app</title>
+ <link rel="stylesheet" href="styles.css">
 </head>
 <body>
  <div class="container">
-   Day: <input type="text" class="day" required>
-   Month:<input type="text" class="month">
-   Year:<input type="text" class="year">
-   <img src="assets/images/favicon-32x32.png" class="imgg">
-   AGE
-   <div class="divyear"><label class="curryear">__</label> YEARS</div> 
-   <div class="divmonth"><label class="currmonth">__</label>MONTHS</div>
-   <div class="divday"> <label class="currday">__</label>DAYS</div>
+   <div class="enterday item-1">
+    Day<input type="text" class="day" size="2">
+    <span class="error-day"></span>
+   </div>
+   <div class="entermonth item-2">
+    Month<input type="text" class="month"size="2">
+    <span class="error-month"></span>
+   </div>
+   <div class="enteryear item-3">
+     Year<input type="text" class="year" size="4">
+     <span class="error-year"></span>
+   </div>
+   <div class="submit-img item-4">
+    <hr>
+    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" class="imgg">
+      <!-- Circle Background -->
+      <circle cx="40" cy="40" r="35" fill="purple" stroke="white" stroke-width="2" />
+    
+      <!-- Curved Tail Arrow (Facing Downward) -->
+      <path d="M30 50 C40 80, 60 80, 70 50 L55 50 L55 30 L45 30 L45 50 L30 50 Z" fill="white" />
+    
+      <!-- Margin Circle -->
+      <circle cx="40" cy="40" r="33" fill="none" stroke="white" stroke-width="2" />
+    </svg>
+    
+   </div>
+   <div class="divyear item-5">
+    <label class="curryear">__</label>  YEARS
+   </div> 
+   <div class="divmonth item-6">
+    <label class="currmonth">__</label>  MONTHS
+   </div>
+   <div class="divday item-7">
+    <label class="currday">__</label> DAYS
+  </div>
  </div>
- <script src="script.js"></script>
+ <script src="script.js" ></script>
 </body>
 </html>
