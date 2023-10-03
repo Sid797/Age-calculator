@@ -28,12 +28,46 @@ function findAge(current_date, current_month, current_year, birth_date, birth_mo
   document.querySelector(".curryear").innerHTML = calculated_year;
 }
 
+const inputFields = [
+  day,
+  month,
+  year,
+];
+
+const errorOutput = [
+  ".error-day",
+  ".error-month",
+  ".error-year",
+]
+
+const calculatedValues = [
+  ".currday",
+  ".currmonth",
+  ".curryear"
+];
+
 submit.addEventListener("click", function () {
+  inputFields.forEach((input, index) => {
+    document.querySelector(errorOutput[index]).innerHTML = "";
+    input.placeholder = "";
+    input.style.border = "inherit";
+    document.querySelector(calculatedValues[index]).innerHTML = "__";
+
+    if (!input.value) {
+      input.placeholder = "Empty";
+      input.style.border = "solid red";
+      document.querySelector(errorOutput[index]).innerHTML="Error: Field can't be empty.";
+    }
+  })
+
+  if (!day.value || !month.value || !year.value) {
+    return;
+  }
+
   const birthDay = parseInt(day.value, 10);
   const birthMonth = parseInt(month.value, 10); 
   const birthYear = parseInt(year.value, 10);
   findAge(currDay, currMonth, currYear, birthDay, birthMonth, birthYear);
-
 
   if (isNaN(birthDay) || isNaN(birthMonth) || isNaN(birthYear)){
   day.style.border="solid red";
