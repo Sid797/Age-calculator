@@ -96,7 +96,13 @@ body{
     grid-row:3/4;
     grid-column:1/7;
     height: auto;
+    align-items: center;
 }
+
+.item-4 svg {
+    margin: auto;
+}
+
 hr{
     width: auto; text-align: left; margin: 0;height:1px;
 }
